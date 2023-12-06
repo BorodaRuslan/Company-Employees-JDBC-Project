@@ -10,14 +10,13 @@ public class EmployeeView {
     private static final Logger logger = LoggerFactory.getLogger(EmployeeView.class);
     Scanner scanner = new Scanner(System.in);
 
-
-    
     public int optionalUser(){
         int userChoice;
        do {
            menu();
            try {
                userChoice = scanner.nextInt();
+               logger.info(">>> Data received from user: " + userChoice);
            } catch (InputMismatchException e ){
                System.out.println("Invalid input. Please enter a valid number");
                logger.warn(">>> Invalid input number: " + e.getMessage());
@@ -27,7 +26,6 @@ public class EmployeeView {
        } while (userChoice < 0 || userChoice > 5);
        return userChoice;
     }
-
     private void menu(){
         System.out.println("""
                 
@@ -41,4 +39,6 @@ public class EmployeeView {
                 
                 """);
     }
+
+
 }
