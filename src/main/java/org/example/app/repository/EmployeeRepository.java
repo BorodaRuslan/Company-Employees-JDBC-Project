@@ -12,11 +12,10 @@ import java.util.List;
 public class EmployeeRepository {
     private static final Logger logger = LoggerFactory.getLogger(EmployeeRepository.class);
 
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         List<Employee> listEmployees = new ArrayList<>();
         try (Connection connect = DBConn.connect();
-             Statement statement = connect.createStatement();)
-        {
+             Statement statement = connect.createStatement();) {
             String query = "SELECT * FROM employee";
             ResultSet resultEmployees = statement.executeQuery(query);
             logger.info(">>> Base connection established!");
@@ -35,15 +34,15 @@ public class EmployeeRepository {
                 listEmployees.add(employee);
             }
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             logger.error(">>> No connection to base established: " + e.getMessage());
         }
         return listEmployees;
     }
 
-    public Employee getEmployeeByName(String firstName, String lastName){
+    public Employee getEmployeeByName(String firstName, String lastName) {
         Employee employee = new Employee();
-        try (Connection connect = DBConn.connect()){
+        try (Connection connect = DBConn.connect()) {
 
             String query = "Select * From employee Where first_name = ? AND last_name = ?";
             PreparedStatement preparedStatement = connect.prepareStatement(query);
@@ -54,7 +53,7 @@ public class EmployeeRepository {
 
             ResultSet resultEmployee = preparedStatement.executeQuery();
 
-            while (resultEmployee.next()){
+            while (resultEmployee.next()) {
                 employee.setId(resultEmployee.getLong("id"));
                 employee.setFirst_name(resultEmployee.getString("first_name"));
                 employee.setLast_name(resultEmployee.getString("last_name"));
@@ -67,14 +66,10 @@ public class EmployeeRepository {
             logger.info(">>> Return the object from the database!");
             return employee;
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             logger.error(">>> No connection to base established: " + e.getMessage());
         }
-        return employee;
-
+        return null;
     }
-
-
-
 
 }

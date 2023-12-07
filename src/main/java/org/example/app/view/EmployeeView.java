@@ -13,7 +13,6 @@ public class EmployeeView {
     public int optionalUser(){
         int userChoice;
        do {
-           menu();
            try {
                userChoice = scanner.nextInt();
                logger.info(">>> Data received from user: " + userChoice);
@@ -26,7 +25,7 @@ public class EmployeeView {
        } while (userChoice < 0 || userChoice > 5);
        return userChoice;
     }
-    private void menu(){
+    public void menu(){
         System.out.println("""
                 
                 To use the application, select a number from the menu.
@@ -39,6 +38,11 @@ public class EmployeeView {
                 
                 """);
     }
+
+    public void getOutput(String output){
+        System.out.println(output);
+    }
+
 
 
 }

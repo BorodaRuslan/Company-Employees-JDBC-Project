@@ -17,17 +17,28 @@ public class EmployeeGetByNameView {
         do {
             try {
                 System.out.println("Please, enter first name: ");
-                firstName = scanner.nextLine();
+                firstName = scanner.nextLine().trim();
                 System.out.println("Please, enter last name: ");
-                lastName = scanner.nextLine();
-            } catch (InputMismatchException e){
-                System.out.println("Invalid input. Please enter a valid name");
-                logger.warn(">>> Invalid name: " + e.getMessage());
+                lastName = scanner.nextLine().trim();
 
+                if (!firstName.isEmpty() && firstName.matches("^[а-яА-ЯёЁ]+$") &&
+                        !lastName.isEmpty() && lastName.matches("^[а-яА-ЯёЁ]+$")){
+                    data[0] = firstName;
+                    data[1]= lastName;
+                    logger.info(">>> Received user data: " + firstName + " and " + lastName);
+                    break;    // Выход из цикла, если ввод корректен
+                } else {
+                    System.out.println("Invalid input. Please enter valid first and last names.");
+                    logger.warn(">>> Received data are incorrect: " + firstName + " and " + lastName);
+                }
+
+            } catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter a valid name.");
+                logger.warn(">>> Invalid name: " + e.getMessage());
             }
 
-            // ToDo: Нужно написать условие проверки!
         } while(true);
+        return data;
 
     }
     public void getOutput(String resultOutput){

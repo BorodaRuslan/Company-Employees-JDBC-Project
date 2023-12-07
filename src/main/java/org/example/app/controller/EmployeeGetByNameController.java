@@ -13,6 +13,10 @@ public class EmployeeGetByNameController {
     }
 
     public void getByName(){
+        String[] data = view.getData();
+        String firstName = data[0];
+        String lastName = data[1];
 
+        view.getOutput(service.getEmployeeByName(firstName, lastName));
     }
 }
