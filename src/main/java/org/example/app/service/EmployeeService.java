@@ -2,16 +2,16 @@ package org.example.app.service;
 
 
 import org.example.app.entity.Employee;
-import org.example.app.repository.EmployeeRepository;
+import org.example.app.repository.EmployeeCRUDRepository;
 
 import java.util.List;
 
 public class EmployeeService {
 
-    EmployeeRepository repository;
+    EmployeeCRUDRepository repository;
     StringBuilder stringBuilder = new StringBuilder();
 
-    public EmployeeService(EmployeeRepository repository) {
+    public EmployeeService(EmployeeCRUDRepository repository) {
         this.repository = repository;
     }
 

@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EmployeeGetByNameView {
-    private static final Logger logger = LoggerFactory.getLogger(EmployeesGetAllVeiw.class);
+    private static final Logger logger = LoggerFactory.getLogger(EmployeeGetByNameView.class);
 
     Scanner scanner = new Scanner(System.in);
     public String[] getData(){

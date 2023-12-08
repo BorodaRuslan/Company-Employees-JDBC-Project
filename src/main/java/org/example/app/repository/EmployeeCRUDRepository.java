@@ -9,8 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepository {
-    private static final Logger logger = LoggerFactory.getLogger(EmployeeRepository.class);
+public class EmployeeCRUDRepository {
+    private static final Logger logger = LoggerFactory.getLogger(EmployeeCRUDRepository.class);
 
     public List<Employee> getAllEmployees() {
         List<Employee> listEmployees = new ArrayList<>();
