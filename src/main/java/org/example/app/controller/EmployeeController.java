@@ -30,6 +30,7 @@ public class EmployeeController {
                 break;
             case 0:
                 System.out.println("Closing the application. Goodbye!");
+                break;
 
             default:
                 System.out.println("Invalid choice. Please enter a valid option.");

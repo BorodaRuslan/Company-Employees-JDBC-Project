@@ -13,8 +13,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilterEmployeesRepositoryImpl implements FilterRepository<Employee> {
-    private static final Logger logger = LoggerFactory.getLogger(FilterEmployeesRepositoryImpl.class);
+public class EmployeesFilteringRepositoryImpl implements FilterRepository<Employee> {
+    private static final Logger logger = LoggerFactory.getLogger(EmployeesFilteringRepositoryImpl.class);
     @Override
     public List<Employee> filterByCity(String city) {
         return executeFilterQuery("city", city);
@@ -37,9 +37,9 @@ public class FilterEmployeesRepositoryImpl implements FilterRepository<Employee>
 
     private <T> List<Employee> executeFilterQuery(String columnName, T value) {
         List<Employee> resultList = new ArrayList<>();
-        try (Connection connect = DBConn.connect()) {
-            String query = "SELECT * FROM employee WHERE " + columnName + " = ?";
-            PreparedStatement preparedStatement = connect.prepareStatement(query);
+        String query = "SELECT * FROM employee WHERE " + columnName + " = ?";
+        try (Connection connect = DBConn.connect();
+             PreparedStatement preparedStatement = connect.prepareStatement(query)){
 
             if (value instanceof String){
                 preparedStatement.setString(1, (String) value);
