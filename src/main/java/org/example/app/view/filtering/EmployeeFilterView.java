@@ -39,9 +39,9 @@ public class EmployeeFilterView {
                 
                 How do you want to filter out employees?
                 
-                1.Filtered by gender.
+                1.Filtered by city.
                 2.Filtered by positions.
-                3.Filtered by salary.
+                3.Filtered by gender.
                 
                 """);
     }
