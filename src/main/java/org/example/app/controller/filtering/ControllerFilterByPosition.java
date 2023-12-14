@@ -18,7 +18,6 @@ public class ControllerFilterByPosition {
 
     public void getFilterPositionOut(){
         List<String> resultPosition = view.inputDataPosition();
-        String position = resultPosition.get(0);
-        view.getOutput(service.filterByPosition(position));
+        view.getOutput(service.filterByPosition(resultPosition));
     }
 }

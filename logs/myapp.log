@@ -1,1 +1,4 @@
 15:06:20.307 [main] WARN  o.e.app.view.EmployeesGetAllVeiw - >>> Received data are incorrect: Анна  and Коваленко 
+12:30:19.013 [main] ERROR o.e.a.r.I.EmployeesFilteringRepositoryImpl - >>> No connection to base established: ОШИБКА: функция cityin(character varying, character varying) не существует
+  Подсказка: Функция с данными именем и типами аргументов не найдена. Возможно, вам следует добавить явные приведения типов.
+  Позиция: 30

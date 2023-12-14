@@ -15,9 +15,6 @@ public class ControllerFilterByCity {
     }
 
     public void getFilteredOut(){
-        List<String> listCity = view.inputData();
-        String city = listCity.get(0);
-
-        view.getOutput(service.filterByCity(city));
+        view.getOutput(service.filterByCity(view.inputData()));
     }
 }

@@ -12,19 +12,19 @@ public class EmployeeFilterService {
         this.repository = repository;
     }
 
-    public String filterByCity(String city){
+    public String filterByCity(List<String> city){
         return builderDataEmployee(repository.filterByCity(city));
     }
 
-    public String filterByGender(String gender){
+    public String filterByGender(List<String> gender){
         return builderDataEmployee(repository.filterByGender(gender));
     }
 
-    public String filterByPosition(String position){
+    public String filterByPosition(List<String> position){
         return builderDataEmployee(repository.filterByPositions(position));
     }
 
-    public String filterBySalary(double salary){
+    public String filterBySalary(List<Double> salary){
         return builderDataEmployee(repository.filterBySalary(salary));
     }
 

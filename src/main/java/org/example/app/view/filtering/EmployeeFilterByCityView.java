@@ -8,35 +8,42 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeFilterByCityView {
-
-    // Todo: Этот метод можно сделать более гибким, например для ввода нескольких городов!
     private static final Logger logger = LoggerFactory.getLogger(EmployeeFilterByCityView.class);
+    private final Scanner scanner = new Scanner(System.in);
+    private final List<String> cityList = new ArrayList<>();
 
     public List<String> inputData(){
+        // Переменная для хранения ответа пользователя о добавлении еще одного города
+        String userAnswer = null;
 
-        List<String> cityList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        String searchCity = null;
-
+        // Начало цикла для ввода городов.
         do {
-            System.out.println("Enter the city by which you want to search!");
-            try {
-                searchCity = scanner.nextLine().trim();
-                logger.info(">>> Received user data:" + searchCity);
+            // Переменная для хранения введенного города.
+            String searchCity;
 
+            // Внутренний цикл для ввода города с проверкой валидности.
+            do {
+                System.out.println("Enter the city by which you want to filter (1-12 characters, Cyrillic only):");
+                searchCity = scanner.nextLine();
+                logger.info(">>> Received user data: " + searchCity);
+            } while (!searchCity.matches("^[а-яА-ЯёЁ]{1,12}$"));   // Проверка валидности ввода.
+            // Добавление введенного города в список.
+            cityList.add(searchCity);
 
-            } catch (Exception e){
-                System.out.println("An error occurred: " + e.getMessage());
-                logger.error(">>> Error: " + e.getMessage());
-            }
+            // Запрос пользователя о добавлении еще одного города
+            System.out.println("Do you want to add another city for filtering? (Yes/No)");
+            userAnswer = scanner.nextLine().trim();
 
-        } while (!searchCity.matches("^[а-яА-ЯёЁ]{1,12}$"));
-        cityList.add(searchCity);
+        } while (userAnswer.equalsIgnoreCase("Yes")); // Повторение цикла при положительном ответе пользователя
         return cityList;
     }
-
-    public void getOutput(String output){
-        // Тут можно сделать описание фильтрации
-        System.out.println(output);
+    public void getOutput(String output) {
+        if (cityList.isEmpty()) {
+            System.out.println("No cities selected.");
+        } else {
+            String cityStr = String.join(", ", cityList);
+            System.out.println("You have filtered these cities: " + cityStr + ". " + "\n");
+            System.out.println(output);
+        }
     }
 }

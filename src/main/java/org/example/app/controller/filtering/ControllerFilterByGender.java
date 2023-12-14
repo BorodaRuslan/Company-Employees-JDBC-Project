@@ -17,7 +17,7 @@ public class ControllerFilterByGender {
     
     public void getFilterByGender(){
         List<String> dataGender = view.getDataGender();
-        String letter = dataGender.get(0);
-        view.getOutput(service.filterByGender(letter));
+
+        view.getOutput(service.filterByGender(dataGender));
     }
 }

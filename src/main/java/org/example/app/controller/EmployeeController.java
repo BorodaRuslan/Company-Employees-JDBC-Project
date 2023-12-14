@@ -48,15 +48,15 @@ public class EmployeeController {
                switch (choice){
                    case 1:
                        containerFiltering.filterEmployeesByCity();
-                       // тут будет логика сохранения
+                       // ToDo: Тут должна быть логика сохранения результатов фильтрации
                        break;
                    case 2:
                        containerFiltering.filterEmployeesByPosition();
-                       // тут будет логика сохранения
+                       // ToDo: Тут должна быть логика сохранения результатов фильтрации
                        break;
                    case 3:
                        containerFiltering.filterEmployeesByGender();
-                       // тут будет логика сохранения
+                       // ToDo: Тут должна быть логика сохранения результатов фильтрации
                        break;
                }
                break;
