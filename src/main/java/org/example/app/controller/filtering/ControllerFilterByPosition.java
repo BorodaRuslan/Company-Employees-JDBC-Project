@@ -17,7 +17,6 @@ public class ControllerFilterByPosition {
     }
 
     public void getFilterPositionOut(){
-        List<String> resultPosition = view.inputDataPosition();
-        view.getOutput(service.filterByPosition(resultPosition));
+        view.getOutput(service.filterByPosition(view.inputData("positions")));
     }
 }

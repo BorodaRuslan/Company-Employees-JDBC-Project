@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeFilterByGenderView {
-    // Todo: Этот метод можно сделать более гибким, например для ввода нескольких параметров!
     private static final Logger logger = LoggerFactory.getLogger(EmployeeFilterByGenderView.class);
 
     public List<String> getDataGender() {
